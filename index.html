@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f0ece4">
-  <meta name="description" content="02._.math — พื้นที่เดียวสำหรับการสอนคณิตศาสตร์ เครื่องมือสอบ คอร์สเรียน หลังบ้าน และแบบฟอร์มสำหรับโรงเรียน">
+  <meta name="description" content="02._.math — Math is understanding, not memorizing. คณิตไม่ใช่ความจำ แต่คือความเข้าใจ · พื้นที่เดียวสำหรับการสอน การสอบ คอร์สเรียน และระบบหลังบ้าน">
   <meta property="og:title" content="02._.math — พื้นที่การเรียนรู้คณิตศาสตร์">
-  <meta property="og:description" content="รวมเครื่องมือสำหรับครู นักเรียน และผู้ปกครองไว้ในที่เดียว">
+  <meta property="og:description" content="Math is understanding, not memorizing. คณิตไม่ใช่ความจำ แต่คือความเข้าใจ">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://02math.com/assets/brand/og-02math.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:url" content="https://02math.com/">
-  <title>02._.math — พื้นที่การเรียนรู้คณิตศาสตร์</title>
-  <link rel="icon" href="./Circle.jpg">
-  <link rel="apple-touch-icon" href="./Circle.jpg">
+  <title>02._.math — Math is understanding, not memorizing.</title>
+  <link rel="icon" href="./assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/brand/apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
   <link rel="preload" href="./assets/fonts/kanit-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/ibm-plex-sans-thai-400-thai.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/ibm-plex-sans-thai-600-thai.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,7 +25,7 @@
   <div class="grain" aria-hidden="true"></div>
   <header class="topbar">
     <a class="brand" href="/" aria-label="02._.math หน้าหลัก">
-      <span class="brand__mark" aria-hidden="true">02</span>
+      <img class="brand__logo" src="./assets/brand/logo.svg" alt="" width="38" height="38" aria-hidden="true">
       <span class="brand__name">02._.math</span>
     </a>
     <nav class="nav" aria-label="เมนูหลัก">
@@ -34,8 +38,8 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__copy">
-        <p class="eyebrow"><span class="eyebrow__line"></span> Mathematics, made clear.</p>
-        <h1 id="hero-title">เรียนคณิต<br><span class="hero__accent">ให้ชัดขึ้น.</span></h1>
+        <p class="eyebrow"><span class="eyebrow__line"></span> Math is understanding, not memorizing.</p>
+        <h1 id="hero-title">คณิตไม่ใช่ความจำ<br><span class="hero__accent">แต่คือความเข้าใจ.</span></h1>
         <p class="hero__lead">พื้นที่เดียวสำหรับการสอน การสอบ และการดูแลนักเรียน — ตั้งแต่สร้างชุดข้อสอบ ไปจนถึงคอร์สเรียนและระบบหลังบ้านของโรงเรียน</p>
         <div class="hero__actions">
           <a class="btn btn--dark" href="https://mock.02math.com">
@@ -56,21 +60,22 @@
         <div class="orbit__dot orbit__dot--one" aria-hidden="true"></div>
         <div class="orbit__dot orbit__dot--two" aria-hidden="true"></div>
         <div class="monogram" aria-hidden="true">
-          <span>02</span>
-          <small>math</small>
+          <img class="monogram__logo" src="./assets/brand/logo-inverse.svg" alt="">
+          <span class="monogram__count">04</span>
+          <small class="monogram__caption">systems</small>
         </div>
-        <div class="float-tag float-tag--a"><span class="float-tag__dot"></span> mock <small>สนามสอบ</small></div>
-        <div class="float-tag float-tag--b"><span class="float-tag__dot"></span> book <small>คอร์สเรียน</small></div>
-        <div class="float-tag float-tag--c"><span class="float-tag__dot"></span> admin <small>หลังบ้าน</small></div>
-        <div class="float-tag float-tag--d"><span class="float-tag__dot"></span> form <small>แบบฟอร์ม</small></div>
-        <p class="visual-caption">หนึ่งพื้นที่<br>หลายเครื่องมือ</p>
+        <span class="float-tag float-tag--a"><span class="float-tag__dot"></span> mock <small>สนามสอบออนไลน์</small></span>
+        <span class="float-tag float-tag--b"><span class="float-tag__dot"></span> book <small>คอร์สเรียน &amp; ผู้ปกครอง</small></span>
+        <span class="float-tag float-tag--c"><span class="float-tag__dot"></span> admin <small>หลังบ้านสำหรับทีม</small></span>
+        <span class="float-tag float-tag--d"><span class="float-tag__dot"></span> form <small>แบบฟอร์ม &amp; สำรวจ</small></span>
+        <span class="float-tag float-tag--e"><span class="float-tag__dot"></span> math <small>พื้นที่หลัก</small></span>
       </div>
     </section>
 
     <div class="ticker" aria-hidden="true">
       <div class="ticker__track">
-        <span>EXAM</span><i>✦</i><span>LEARN</span><i>✦</i><span>TEACH</span><i>✦</i><span>GROW</span><i>✦</i>
-        <span>EXAM</span><i>✦</i><span>LEARN</span><i>✦</i><span>TEACH</span><i>✦</i><span>GROW</span><i>✦</i>
+        <span>UNDERSTANDING</span><i>✦</i><span>NOT MEMORIZING</span><i>✦</i><span>เข้าใจ ไม่ใช่ท่องจำ</span><i>✦</i><span>02._.math</span><i>✦</i>
+        <span>UNDERSTANDING</span><i>✦</i><span>NOT MEMORIZING</span><i>✦</i><span>เข้าใจ ไม่ใช่ท่องจำ</span><i>✦</i><span>02._.math</span><i>✦</i>
       </div>
     </div>
 
@@ -142,7 +147,7 @@
       <div class="about__mark" aria-hidden="true">02</div>
       <div class="about__copy">
         <p class="eyebrow"><span class="eyebrow__line"></span> Why 02._.math</p>
-        <h2 id="about-title">ไม่ใช่แค่เว็บทำข้อสอบ<br>แต่คือพื้นที่ให้การสอน<br><em>ชัดเจนขึ้น</em></h2>
+        <h2 id="about-title"><span class="about__en">Math is understanding,<br>not memorizing.</span><em>คณิตไม่ใช่ความจำ แต่คือความเข้าใจ</em></h2>
         <p>เรากำลังสร้างระบบนิเวศเล็ก ๆ ที่ทำให้ครูมีเวลาสอนมากขึ้น นักเรียนเห็นความก้าวหน้าของตัวเอง และผู้ปกครองเข้าใจการเรียนของลูกได้ง่ายขึ้น — เริ่มจากเครื่องมือที่ใช้งานได้จริงในห้องเรียนวันนี้</p>
       </div>
       <div class="about__stats" aria-label="ภาพรวม">
@@ -156,9 +161,9 @@
   <footer class="footer">
     <div class="footer__top">
       <a class="brand brand--footer" href="/" aria-label="02._.math">
-        <span class="brand__mark">02</span><span class="brand__name">02._.math</span>
+        <img class="brand__logo brand__logo--footer" src="./assets/brand/logo-inverse.svg" alt="" width="38" height="38" aria-hidden="true"><span class="brand__name">02._.math</span>
       </a>
-      <p>Mathematics, made clear.<br><span>พื้นที่การเรียนรู้ที่กำลังเติบโต</span></p>
+      <p>Math is understanding, not memorizing.<br><span>คณิตไม่ใช่ความจำ แต่คือความเข้าใจ</span></p>
       <div class="footer__links">
         <a href="#systems">ระบบทั้งหมด</a>
         <a href="#about">เกี่ยวกับ</a>
