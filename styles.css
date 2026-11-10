@@ -268,18 +268,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .monogram::after {
   content: ''; position: absolute; inset: 13px; border: 1px solid rgba(240,236,228,.16); border-radius: 50%;
 }
-.monogram__logo {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 27%;
-  height: 27%;
-  border-radius: 50%;
-  object-fit: cover;
-}
 .monogram__count {
-  margin-top: 15%;
   font-family: var(--brand);
   font-size: clamp(56px, 7vw, 82px);
   line-height: .9;
