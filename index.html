@@ -178,7 +178,7 @@
     document.querySelector('[data-year]').textContent = new Date().getFullYear();
     const on02Math = /(^|\.)02math\.com$/i.test(location.hostname);
     const routes = on02Math
-      ? { mock: 'https://mock.02math.com', book: 'https://book.02math.com', admin: 'https://admin.02math.com', form: 'https://form.02math.com' }
+      ? { mock: 'https://mock.02math.com', book: 'https://book.02math.com', admin: 'https://admin.02math.com', form: 'https://08wxch.github.io/02._.mock/form/' }
       : { mock: 'https://08wxch.github.io/02._.mock/', book: 'https://08wxch.github.io/02._.book/', admin: 'https://08wxch.github.io/02._.admin/', form: 'https://08wxch.github.io/02._.mock/form/' };
     document.querySelectorAll('[data-service]').forEach((link) => {
       const key = link.dataset.service;
