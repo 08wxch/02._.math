@@ -6,8 +6,5 @@
   "display": "standalone",
   "background_color": "#f0ece4",
   "theme_color": "#0a0a0a",
-  "icons": [
-    { "src": "/assets/brand/favicon-32.png", "sizes": "32x32", "type": "image/png" },
-    { "src": "/assets/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
-  ]
+  "icons": [ { "src": "/Circle.jpg", "sizes": "1024x1024", "type": "image/jpeg" } ]
 }
