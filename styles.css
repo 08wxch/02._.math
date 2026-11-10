@@ -367,14 +367,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .system-card__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 28px; padding-top: 13px; border-top: 1px solid rgba(10,10,10,.12); color: var(--muted-2); font-size: 9px; }
 .system-card:hover .system-card__foot { border-top-color: rgba(255,253,248,.15); }
 .text-link { color: var(--ink-soft); font-size: 9.5px; font-weight: 500; white-space: nowrap; transition: color .25s ease; }
-.system-card--soon { cursor: default; }
-.system-card--soon:hover { background: rgba(255,253,248,.18); color: var(--ink); }
-.system-card--soon:hover .system-card__kicker,
-.system-card--soon:hover .system-card__desc,
-.system-card--soon:hover .system-card__foot { color: var(--muted); }
-.system-card--soon:hover .system-card__icon { border-color: var(--line-strong); color: var(--ink-soft); }
-.system-card--soon:hover .text-link { color: var(--ink-soft); }
-.status-pill { border: 1px solid var(--line-strong); border-radius: 99px; padding: 4px 8px; color: var(--muted); font-size: 8px; letter-spacing: .05em; }
 
 .about {
   position: relative; z-index: 2;
