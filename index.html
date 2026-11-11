@@ -2,15 +2,15 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#f0ece4">
-  <meta name="description" content="02._.math — Math is understanding, not memorizing. คณิตไม่ใช่ความจำ แต่คือความเข้าใจ · พื้นที่เดียวสำหรับการสอน การสอบ คอร์สเรียน และระบบหลังบ้าน">
-  <meta property="og:title" content="02._.math — พื้นที่การเรียนรู้คณิตศาสตร์">
-  <meta property="og:description" content="Math is understanding, not memorizing. คณิตไม่ใช่ความจำ แต่คือความเข้าใจ">
+  <meta name="description" content="02._.math — Math is understanding, not memorizing. พื้นที่เดียวสำหรับการสอน การสอบ คลังหนังสือ และงานหลังบ้านของโรงเรียน">
+  <meta property="og:title" content="02._.math — Math is understanding, not memorizing.">
+  <meta property="og:description" content="คณิตไม่ใช่ความจำ แต่คือความเข้าใจ — ระบบนิเวศเดียวสำหรับห้องเรียนจริง">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://02math.com/Circle.jpg">
-  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:url" content="https://02math.com/">
+  <meta name="twitter:card" content="summary_large_image">
   <title>02._.math — Math is understanding, not memorizing.</title>
   <link rel="icon" href="./Circle.jpg">
   <link rel="apple-touch-icon" href="./Circle.jpg">
@@ -18,172 +18,273 @@
   <link rel="preload" href="./assets/fonts/kanit-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/ibm-plex-sans-thai-400-thai.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/ibm-plex-sans-thai-600-thai.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=20261112a">
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <header class="topbar">
-    <a class="brand" href="/" aria-label="02._.math หน้าหลัก">
-      <img class="brand__logo" src="./Circle.jpg" alt="" width="38" height="38" aria-hidden="true">
-      <span class="brand__name">02._.math</span>
-    </a>
-    <nav class="nav" aria-label="เมนูหลัก">
-      <a href="#systems">ระบบทั้งหมด</a>
-      <a href="#about">เกี่ยวกับ</a>
-      <a class="nav__status" href="#systems"><span class="status-dot"></span> 4 ระบบ</a>
-    </nav>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="02._.math หน้าหลัก">
+        <img class="brand__logo" src="./Circle.jpg" alt="" width="38" height="38">
+        <span class="brand__name">02._.math</span>
+      </a>
+      <nav class="nav" aria-label="เมนูหลัก">
+        <a href="#zones">พื้นที่ทั้งหมด</a>
+        <a href="#manifesto">แนวคิด</a>
+        <span class="nav__status"><span class="status-dot"></span> 04 public tools</span>
+      </nav>
+      <a class="header__workspace" href="./workspace/">
+        <span class="header__workspace-k">for the team</span> workspace
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
   </header>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__copy">
-        <p class="eyebrow"><span class="eyebrow__line"></span> Math is understanding, not memorizing.</p>
-        <h1 id="hero-title">คณิตไม่ใช่ความจำ<br><span class="hero__accent">แต่คือความเข้าใจ.</span></h1>
-        <p class="hero__lead">พื้นที่เดียวสำหรับการสอน การสอบ และการดูแลนักเรียน — ตั้งแต่สร้างชุดข้อสอบ ไปจนถึงคอร์สเรียนและระบบหลังบ้านของโรงเรียน</p>
-        <div class="hero__actions">
-          <a class="btn btn--dark" href="https://08wxch.github.io/02._.mock/" data-service="mock">
-            เข้าสู่ระบบสอบ
-            <span class="btn__arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="btn btn--quiet" href="#systems">ดูระบบทั้งหมด <span aria-hidden="true">↓</span></a>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal"><span class="eyebrow-line"></span> Math is understanding, not memorizing.</p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="line"><span>คณิตไม่ใช่ความจำ</span></span>
+            <span class="line"><span class="gold">แต่คือความเข้าใจ.</span></span>
+          </h1>
+          <p class="hero-lead reveal">พื้นที่เดียวสำหรับการสอน การสอบ คลังหนังสือ และงานหลังบ้านของโรงเรียน — ตั้งแต่สร้างชุดข้อสอบ ไปจนถึงใบเสร็จและรายได้ของทีม</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn--dark magnetic" href="https://mock.02math.com">
+              เข้าสู่ระบบสอบ <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn--quiet magnetic" href="#zones">สำรวจระบบทั้งหมด <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-note reveal">
+            <span class="hero-note__mark" aria-hidden="true">02</span>
+            <span>เครื่องมือที่ออกแบบสำหรับห้องเรียนจริง<br>และคนที่อยากเข้าใจคณิตศาสตร์จริง ๆ</span>
+          </div>
         </div>
-        <div class="hero__note">
-          <span class="hero__note-mark" aria-hidden="true">02</span>
-          <span>เครื่องมือที่ออกแบบสำหรับห้องเรียนจริง<br>และคนที่อยากเข้าใจคณิตศาสตร์จริง ๆ</span>
-        </div>
-      </div>
 
-      <div class="hero__visual" aria-label="ภาพรวมระบบ 02._.math">
-        <div class="orbit orbit--outer" aria-hidden="true"></div>
-        <div class="orbit orbit--inner" aria-hidden="true"></div>
-        <div class="orbit__dot orbit__dot--one" aria-hidden="true"></div>
-        <div class="orbit__dot orbit__dot--two" aria-hidden="true"></div>
-        <div class="monogram" aria-hidden="true">
-          <span class="monogram__count">04</span>
-          <small class="monogram__caption">systems</small>
+        <div class="hero-visual" id="hero-visual" aria-label="เครื่องมือสาธารณะของ 02._.math">
+          <div class="orbit orbit--outer" aria-hidden="true"></div>
+          <div class="orbit orbit--inner" aria-hidden="true"></div>
+          <div class="orbit-line" aria-hidden="true"></div>
+          <div class="monogram" aria-hidden="true">
+            <span class="monogram__count">04</span>
+            <small>public tools</small>
+          </div>
+          <a class="float-tag float-tag--mock" href="https://mock.02math.com"><i></i><span><b>mock</b><small>สนามสอบออนไลน์</small></span></a>
+          <a class="float-tag float-tag--library" href="https://library.02math.com"><i></i><span><b>library</b><small>คลังหนังสือคณิต</small></span></a>
+          <a class="float-tag float-tag--book" href="https://book.02math.com"><i></i><span><b>book</b><small>คอร์ส &amp; ผู้ปกครอง</small></span></a>
+          <a class="float-tag float-tag--form" href="https://mock.02math.com/form/"><i></i><span><b>form</b><small>แบบฟอร์ม &amp; สำรวจ</small></span></a>
+          <span class="hero-visual__caption">public tools · one clear entrance</span>
         </div>
-        <span class="float-tag float-tag--a"><span class="float-tag__dot"></span> mock <small>สนามสอบออนไลน์</small></span>
-        <span class="float-tag float-tag--b"><span class="float-tag__dot"></span> book <small>คอร์สเรียน &amp; ผู้ปกครอง</small></span>
-        <span class="float-tag float-tag--c"><span class="float-tag__dot"></span> admin <small>หลังบ้านสำหรับทีม</small></span>
-        <span class="float-tag float-tag--d"><span class="float-tag__dot"></span> form <small>แบบฟอร์ม &amp; สำรวจ</small></span>
-        <span class="float-tag float-tag--e"><span class="float-tag__dot"></span> math <small>พื้นที่หลัก</small></span>
       </div>
     </section>
 
     <div class="ticker" aria-hidden="true">
-      <div class="ticker__track">
+      <div class="ticker-track">
         <span>UNDERSTANDING</span><i>✦</i><span>NOT MEMORIZING</span><i>✦</i><span>เข้าใจ ไม่ใช่ท่องจำ</span><i>✦</i><span>02._.math</span><i>✦</i>
         <span>UNDERSTANDING</span><i>✦</i><span>NOT MEMORIZING</span><i>✦</i><span>เข้าใจ ไม่ใช่ท่องจำ</span><i>✦</i><span>02._.math</span><i>✦</i>
       </div>
     </div>
 
-    <section class="systems" id="systems" aria-labelledby="systems-title">
-      <div class="section-intro">
-        <p class="eyebrow"><span class="eyebrow__line"></span> The ecosystem</p>
-        <div class="section-intro__row">
-          <h2 id="systems-title">เครื่องมือที่แยกกันชัดเจน<br>แต่ทำงานร่วมกัน</h2>
-          <p>แต่ละระบบมีหน้าที่ของตัวเอง เลือกเข้าที่ระบบที่ต้องการได้ทันที — ใช้บัญชีและข้อมูลชุดเดียวกัน</p>
+    <section class="zones section" id="zones" aria-labelledby="zones-title">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> For everyone</p>
+            <h2 id="zones-title">พื้นที่เปิด<br><em>สำหรับทุกคน</em></h2>
+          </div>
+          <p class="section-lead">เครื่องมือที่นักเรียน ผู้ปกครอง และคนที่อยากเข้าใจคณิตศาสตร์เปิดใช้ได้ทันที — ไม่ต้องมีสิทธิ์พิเศษ</p>
         </div>
-      </div>
 
-      <div class="system-grid">
-        <a class="system-card" href="https://08wxch.github.io/02._.mock/" data-service="mock">
-          <div class="system-card__top"><span class="system-card__num">01</span><span class="system-card__arrow" aria-hidden="true">↗</span></div>
-          <div class="system-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 14 2 2 4-4"/></svg>
-          </div>
-          <div>
-            <p class="system-card__kicker">สนามสอบออนไลน์</p>
-            <h3>02._.mock</h3>
-            <p class="system-card__desc">สร้างชุดข้อสอบ เปิดห้องสอบ ตรวจคำตอบ และประกาศผลให้นักเรียนในที่เดียว</p>
-          </div>
-          <div class="system-card__foot"><span>สร้างข้อสอบ · ตรวจ · ประกาศผล</span><span class="text-link">เข้าสู่ระบบ</span></div>
-        </a>
+        <div class="tool-grid tool-grid--public tool-grid--wide">
+          <a class="tool-card" href="https://library.02math.com" data-tilt>
+            <span class="tool-card__top"><span class="tool-card__num">01</span><span class="tool-card__glyph">π</span><span class="tool-card__arrow">↗</span></span>
+            <span class="tool-card__body"><b>02._.library</b><span>คลังหนังสือคณิตศาสตร์<br>ซื้อและอ่านออนไลน์</span></span>
+            <span class="tool-card__tags"><i>อ่านออนไลน์</i><i>พร้อมเพย์</i></span>
+          </a>
+          <a class="tool-card" href="https://mock.02math.com" data-tilt>
+            <span class="tool-card__top"><span class="tool-card__num">02</span><span class="tool-card__glyph">∑</span><span class="tool-card__arrow">↗</span></span>
+            <span class="tool-card__body"><b>02._.mock</b><span>สนามสอบออนไลน์<br>ข้อสอบและผลสอบ</span></span>
+            <span class="tool-card__tags"><i>ทำข้อสอบ</i><i>ผลสอบ</i></span>
+          </a>
+          <a class="tool-card" href="https://book.02math.com" data-tilt>
+            <span class="tool-card__top"><span class="tool-card__num">03</span><span class="tool-card__glyph">∞</span><span class="tool-card__arrow">↗</span></span>
+            <span class="tool-card__body"><b>02._.book</b><span>คอร์สเรียน<br>สมัครและติดตามผู้ปกครอง</span></span>
+            <span class="tool-card__tags"><i>คอร์สเรียน</i><i>ผู้ปกครอง</i></span>
+          </a>
+          <a class="tool-card" href="https://mock.02math.com/form/" data-tilt>
+            <span class="tool-card__top"><span class="tool-card__num">04</span><span class="tool-card__glyph">√</span><span class="tool-card__arrow">↗</span></span>
+            <span class="tool-card__body"><b>02._.form</b><span>แบบฟอร์มรับสมัคร<br>และแบบสำรวจ</span></span>
+            <span class="tool-card__tags"><i>แบบฟอร์ม</i><i>แบบสำรวจ</i></span>
+          </a>
+        </div>
 
-        <a class="system-card" href="https://08wxch.github.io/02._.book/" data-service="book">
-          <div class="system-card__top"><span class="system-card__num">02</span><span class="system-card__arrow" aria-hidden="true">↗</span></div>
-          <div class="system-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
-          </div>
-          <div>
-            <p class="system-card__kicker">คอร์สเรียน &amp; ผู้ปกครอง</p>
-            <h3>02._.book</h3>
-            <p class="system-card__desc">หน้าบ้านสำหรับดูคอร์สเรียน สมัครเรียน และติดตามการเรียนของนักเรียนร่วมกับผู้ปกครอง</p>
-          </div>
-          <div class="system-card__foot"><span>คอร์สเรียน · สมัคร · ผู้ปกครอง</span><span class="text-link">ดูคอร์ส</span></div>
-        </a>
-
-        <a class="system-card" href="https://08wxch.github.io/02._.admin/" data-service="admin">
-          <div class="system-card__top"><span class="system-card__num">03</span><span class="system-card__arrow" aria-hidden="true">↗</span></div>
-          <div class="system-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <div>
-            <p class="system-card__kicker">หลังบ้านสำหรับทีม</p>
-            <h3>02._.admin</h3>
-            <p class="system-card__desc">จัดการคอร์ส ผู้ใช้งาน หน่วยงาน และภาพรวมการดำเนินงานของโรงเรียนในที่เดียว</p>
-          </div>
-          <div class="system-card__foot"><span>จัดการ · ภาพรวม · ทีมงาน</span><span class="text-link">เข้าหลังบ้าน</span></div>
-        </a>
-
-        <a class="system-card" href="https://08wxch.github.io/02._.mock/form/" data-service="form">
-          <div class="system-card__top"><span class="system-card__num">04</span><span class="system-card__arrow" aria-hidden="true">↗</span></div>
-          <div class="system-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h5"/></svg>
-          </div>
-          <div>
-            <p class="system-card__kicker">แบบฟอร์ม &amp; สำรวจ</p>
-            <h3>02._.form</h3>
-            <p class="system-card__desc">สร้างแบบฟอร์มรับสมัคร แบบสำรวจ และเก็บข้อมูลจากผู้ปกครองได้อย่างเป็นระบบ</p>
-          </div>
-          <div class="system-card__foot"><span>แบบฟอร์ม · คำตอบ · รายงาน</span><span class="text-link">เปิดใช้งาน</span></div>
+        <a class="workspace-cta reveal" href="./workspace/">
+          <span>
+            <span class="workspace-cta__eyebrow">02 / private workspace</span>
+            <strong>สำหรับทีมงาน<br><em>แยกประตูไว้ที่นี่</em></strong>
+          </span>
+          <span class="workspace-cta__side"><span>admin · librarian · receipt</span><span class="workspace-cta__arrow">↗</span></span>
         </a>
       </div>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="about__mark" aria-hidden="true">02</div>
-      <div class="about__copy">
-        <p class="eyebrow"><span class="eyebrow__line"></span> Why 02._.math</p>
-        <h2 id="about-title">ไม่ใช่แค่เว็บทำข้อสอบ<br>แต่คือพื้นที่ให้การสอน<br><em>ชัดเจนขึ้น</em></h2>
-        <p>เรากำลังสร้างระบบนิเวศเล็ก ๆ ที่ทำให้ครูมีเวลาสอนมากขึ้น นักเรียนเห็นความก้าวหน้าของตัวเอง และผู้ปกครองเข้าใจการเรียนของลูกได้ง่ายขึ้น — เริ่มจากเครื่องมือที่ใช้งานได้จริงในห้องเรียนวันนี้</p>
+    <section class="manifesto section" id="manifesto">
+      <div class="shell manifesto-grid">
+        <div class="manifesto-mark reveal" aria-hidden="true">π</div>
+        <div class="manifesto-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span> The 02._.math principle</p>
+          <h2>“คณิตไม่ใช่ความจำ<br><em>แต่เป็นความเข้าใจ</em>”</h2>
+          <p>ทุกเครื่องมือในระบบนี้ถูกออกแบบจากประโยคเดียว — ให้ครูเห็นสิ่งที่ควรเห็น ให้นักเรียนเข้าใจสิ่งที่กำลังทำ และให้ผู้ปกครองอุ่นใจในทุกขั้นตอน</p>
+        </div>
+        <div class="manifesto-stats reveal">
+          <div><strong>04</strong><span>public tools</span></div>
+          <div><strong>03</strong><span>workspace tools</span></div>
+          <div><strong>1</strong><span>ecosystem</span></div>
+        </div>
       </div>
-      <div class="about__stats" aria-label="ภาพรวม">
-        <div><strong>4</strong><span>ระบบที่เชื่อมกัน</span></div>
-        <div><strong>1</strong><span>บัญชีเดียว</span></div>
-        <div><strong>∞</strong><span>พื้นที่ให้เรียนรู้</span></div>
+    </section>
+
+    <section class="about section" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div class="about-mark reveal" aria-hidden="true">02</div>
+        <div class="about-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Why 02._.math</p>
+          <h2 id="about-title">ไม่ใช่แค่เว็บทำข้อสอบ<br>แต่คือพื้นที่ให้การสอน<br><em>ชัดเจนขึ้น</em></h2>
+          <p>เรากำลังสร้างระบบนิเวศเล็ก ๆ ที่ทำให้ครูมีเวลาสอนมากขึ้น นักเรียนเห็นความก้าวหน้าของตัวเอง และผู้ปกครองเข้าใจการเรียนของลูกได้ง่ายขึ้น — เริ่มจากเครื่องมือที่ใช้งานได้จริงในห้องเรียนวันนี้</p>
+        </div>
+        <div class="about-note reveal">
+          <span class="about-note__line"></span>
+          <p>“Mathematics, made clear.”</p>
+          <span>Bangkok · 2026</span>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer__top">
-      <a class="brand brand--footer" href="/" aria-label="02._.math">
-        <img class="brand__logo brand__logo--footer" src="./Circle.jpg" alt="" width="38" height="38" aria-hidden="true"><span class="brand__name">02._.math</span>
-      </a>
-      <p>Mathematics, made clear.<br><span>พื้นที่การเรียนรู้ที่กำลังเติบโต</span></p>
-      <div class="footer__links">
-        <a href="#systems">ระบบทั้งหมด</a>
-        <a href="#about">เกี่ยวกับ</a>
-        <a href="https://08wxch.github.io/02._.mock/" data-service="mock">เข้าสู่ระบบ</a>
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="/" aria-label="02._.math">
+          <img class="brand__logo" src="./Circle.jpg" alt="" width="42" height="42">
+          <span class="brand__name">02._.math</span>
+        </a>
+        <p class="footer-tag">Mathematics, made clear.<br><span>พื้นที่การเรียนรู้ที่กำลังเติบโต</span></p>
+      </div>
+      <div>
+        <div class="footer-title">public</div>
+        <div class="footer-links">
+          <a href="https://library.02math.com">library</a>
+          <a href="https://mock.02math.com">mock</a>
+          <a href="https://book.02math.com">book</a>
+          <a href="https://mock.02math.com/form/">form</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">workspace</div>
+        <div class="footer-links">
+          <a href="./workspace/">for the team ↗</a>
+          <a href="https://admin.02math.com">admin</a>
+          <a href="https://librarian.02math.com">librarian</a>
+          <a href="https://receipt.02math.com">receipt</a>
+        </div>
       </div>
     </div>
-    <div class="footer__bottom">
+    <div class="shell footer-bottom">
       <span>© <span data-year>2026</span> 02._.math</span>
-      <span>สร้างด้วยความตั้งใจ · สำหรับห้องเรียนจริง</span>
+      <span>Math is understanding, not memorizing.</span>
     </div>
   </footer>
 
   <script>
     document.querySelector('[data-year]').textContent = new Date().getFullYear();
-    const on02Math = /(^|\.)02math\.com$/i.test(location.hostname);
-    const routes = on02Math
-      ? { mock: 'https://mock.02math.com', book: 'https://book.02math.com', admin: 'https://admin.02math.com', form: 'https://08wxch.github.io/02._.mock/form/' }
-      : { mock: 'https://08wxch.github.io/02._.mock/', book: 'https://08wxch.github.io/02._.book/', admin: 'https://08wxch.github.io/02._.admin/', form: 'https://08wxch.github.io/02._.mock/form/' };
-    document.querySelectorAll('[data-service]').forEach((link) => {
-      const key = link.dataset.service;
-      if (routes[key]) link.href = routes[key];
+
+    // route fallback for preview hosts
+    const routes = {
+      mock: 'https://mock.02math.com',
+      book: 'https://book.02math.com',
+      library: 'https://library.02math.com',
+      admin: 'https://admin.02math.com',
+      librarian: 'https://librarian.02math.com',
+      receipt: 'https://receipt.02math.com',
+      form: 'https://mock.02math.com/form/'
+    };
+    if (!/(^|\.)02math\.com$/i.test(location.hostname)) {
+      const preview = {
+        mock: 'https://08wxch.github.io/02._.mock/',
+        book: 'https://08wxch.github.io/02._.book/',
+        library: 'https://library.02math.com',
+        admin: 'https://08wxch.github.io/02._.admin/',
+        librarian: 'https://librarian.02math.com',
+        receipt: 'https://receipt.02math.com',
+        form: 'https://08wxch.github.io/02._.mock/form/'
+      };
+      Object.assign(routes, preview);
+    }
+    document.querySelectorAll('[data-service]').forEach((a) => {
+      if (routes[a.dataset.service]) a.href = routes[a.dataset.service];
     });
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const body = document.body;
+
+    const bar = document.getElementById('scroll-progress');
+    const header = document.getElementById('site-header');
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+      header.classList.toggle('is-scrolled', scrollY > 24);
+    };
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    const heroVisual = document.getElementById('hero-visual');
+    if (heroVisual && finePointer && !reduced) {
+      heroVisual.addEventListener('pointermove', (e) => {
+        const r = heroVisual.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        heroVisual.style.setProperty('--px', x.toFixed(3));
+        heroVisual.style.setProperty('--py', y.toFixed(3));
+      });
+      heroVisual.addEventListener('pointerleave', () => {
+        heroVisual.style.setProperty('--px', 0);
+        heroVisual.style.setProperty('--py', 0);
+      });
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    document.querySelectorAll('.reveal,[data-reveal],.tool-card,.workspace-cta').forEach((el) => io.observe(el));
+
+    const heroVisualEl = document.getElementById('hero-visual');
+    const parallax = () => {
+      if (heroVisualEl && !reduced) heroVisualEl.style.setProperty('--scroll', Math.min(scrollY, 900));
+    };
+    addEventListener('scroll', parallax, { passive: true }); parallax();
+
+    document.querySelectorAll('[data-tilt]').forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${((event.clientX - r.left) / r.width * 100).toFixed(1)}%`);
+        card.style.setProperty('--my', `${((event.clientY - r.top) / r.height * 100).toFixed(1)}%`);
+      });
+    });
+
+    if (finePointer && !reduced) {
+      document.querySelectorAll('[data-tilt]').forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - .5;
+          const y = (e.clientY - r.top) / r.height - .5;
+          card.style.transform = `perspective(700px) rotateX(${(-y * 3).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg) translateY(-2px)`;
+        });
+        card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+      });
+    }
   </script>
 </body>
 </html>
