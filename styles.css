@@ -525,3 +525,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero h1 .char { opacity: 1; transform: none; animation: none; }
 }
 .hero__visual.is-text .monogram { opacity: 0; }
+
+/* keep the four word cards orbiting while the dot sphere reacts to the pointer */
+.hero__visual.has-particles .float-tag {
+  opacity: 1; visibility: visible; pointer-events: auto;
+}
+.hero__visual.is-cursor .monogram { opacity: .12; transform: scale(.86); }
+.hero__visual.is-cursor .orbit { opacity: .3; }
+.hero__visual.is-cursor .monogram { opacity: 0; }

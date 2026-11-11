@@ -18,7 +18,7 @@
   <link rel="preload" href="./assets/fonts/kanit-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/ibm-plex-sans-thai-400-thai.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/ibm-plex-sans-thai-600-thai.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=20261112c">
+  <link rel="stylesheet" href="./styles.css?v=20261112e">
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -203,8 +203,9 @@
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduced) { canvas.remove(); return; }
       const ctx = canvas.getContext('2d');
-      let W = 0, H = 0, DPR = 1, particles = [], sphere = [], textTargets = null;
-      let textMode = false, lastMode = null, raf = 0;
+      let W = 0, H = 0, DPR = 1, particles = [], sphere = [], raf = 0;
+      const center = { x: 0, y: 0 };
+      const pointer = { x: 0, y: 0, active: false };
 
       const rand = (a, b) => a + Math.random() * (b - a);
 
@@ -212,8 +213,7 @@
         const count = innerWidth < 640 ? 520 : 1000;
         particles = Array.from({ length: count }, (_, i) => ({
           x: W / 2 + rand(-W, W), y: H / 2 + rand(-H, H),
-          tx: W / 2, ty: H / 2, idx: i,
-          size: rand(1, 2.4), phase: rand(0, Math.PI * 2),
+          idx: i, size: rand(1, 2.4), phase: rand(0, Math.PI * 2),
           color: i % 8 === 0 ? '#d9ff43' : '#0a0a0a',
           speed: rand(.055, .105)
         }));
@@ -229,35 +229,6 @@
         });
       }
 
-      function makeText() {
-        if (textTargets) return;
-        const off = document.createElement('canvas');
-        off.width = W; off.height = H;
-        const c = off.getContext('2d');
-        c.clearRect(0, 0, W, H);
-        c.fillStyle = '#0a0a0a';
-        c.textAlign = 'center';
-        c.textBaseline = 'middle';
-        const size = Math.min(W * .145, 78);
-        c.font = `600 ${size}px Kanit, "IBM Plex Sans Thai", sans-serif`;
-        const labels = ['mock', 'book', 'form', 'library'];
-        const points = [
-          [W * .27, H * .28], [W * .73, H * .28],
-          [W * .27, H * .72], [W * .73, H * .72]
-        ];
-        labels.forEach((label, i) => c.fillText(label, points[i][0], points[i][1]));
-        const data = c.getImageData(0, 0, W, H).data;
-        const out = [];
-        const step = 2;
-        for (let y = 0; y < H; y += step) {
-          for (let x = 0; x < W; x += step) {
-            if (data[(y * W + x) * 4 + 3] > 150) out.push({ x, y });
-          }
-        }
-        for (let i = out.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [out[i], out[j]] = [out[j], out[i]]; }
-        textTargets = out;
-      }
-
       function resize() {
         const r = visual.getBoundingClientRect();
         W = Math.round(r.width); H = Math.round(r.height);
@@ -266,48 +237,54 @@
         canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
         ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
         visual.classList.add('has-particles');
-        makeParticles(); makeSphere(); textTargets = null;
+        center.x = W / 2; center.y = H / 2;
+        pointer.x = center.x; pointer.y = center.y;
+        makeParticles(); makeSphere();
       }
 
       function draw(now) {
         ctx.clearRect(0, 0, W, H);
-        const p = Math.min(1, Math.max(0, (scrollY - 80) / 470));
-        const nextText = p > .18 && p < .86;
-        if (nextText !== textMode) { textMode = nextText; visual.classList.toggle('is-text', textMode); }
-        if (textMode) makeText();
+        const targetX = pointer.active ? pointer.x : W / 2;
+        const targetY = pointer.active ? pointer.y : H / 2;
+        center.x += (targetX - center.x) * .11;
+        center.y += (targetY - center.y) * .11;
         const angle = now * .00022;
+        const scale = Math.min(W, H) * (pointer.active ? .20 : .31);
+        const cos = Math.cos(angle), sin = Math.sin(angle);
 
         for (let i = 0; i < particles.length; i++) {
           const dot = particles[i];
-          let tx, ty;
-          if (textMode && textTargets && textTargets.length) {
-            const t = textTargets[i % textTargets.length];
-            tx = t.x; ty = t.y;
-          } else {
-            const s = sphere[i] || sphere[0];
-            const cos = Math.cos(angle), sin = Math.sin(angle);
-            const x = s.x * cos - s.z * sin;
-            const z = s.x * sin + s.z * cos;
-            const scale = Math.min(W, H) * .31;
-            tx = W / 2 + x * scale;
-            ty = H / 2 + s.y * scale;
-            dot.size = 1.2 + (z + 1) * .75;
-          }
-          dot.x += (tx - dot.x) * (textMode ? .19 : dot.speed);
-          dot.y += (ty - dot.y) * (textMode ? .19 : dot.speed);
-          const jitter = textMode ? .018 : .12;
+          const s = sphere[i] || sphere[0];
+          const x = s.x * cos - s.z * sin;
+          const z = s.x * sin + s.z * cos;
+          const tx = center.x + x * scale;
+          const ty = center.y + s.y * scale;
+          dot.x += (tx - dot.x) * dot.speed;
+          dot.y += (ty - dot.y) * dot.speed;
+          const jitter = pointer.active ? .06 : .12;
           dot.x += Math.sin(now * .001 + dot.phase) * jitter;
           dot.y += Math.cos(now * .0013 + dot.phase) * jitter;
           ctx.beginPath();
           ctx.fillStyle = dot.color;
-          ctx.globalAlpha = textMode ? .94 : .82;
-          ctx.arc(dot.x, dot.y, textMode ? 1.15 : dot.size, 0, Math.PI * 2);
+          ctx.globalAlpha = .84;
+          ctx.arc(dot.x, dot.y, 1.2 + (z + 1) * .75, 0, Math.PI * 2);
           ctx.fill();
         }
         ctx.globalAlpha = 1;
         raf = requestAnimationFrame(draw);
       }
 
+      visual.addEventListener('pointermove', (event) => {
+        const r = visual.getBoundingClientRect();
+        pointer.x = event.clientX - r.left;
+        pointer.y = event.clientY - r.top;
+        pointer.active = true;
+        visual.classList.add('is-cursor');
+      }, { passive: true });
+      visual.addEventListener('pointerleave', () => {
+        pointer.active = false;
+        visual.classList.remove('is-cursor');
+      });
       resize();
       addEventListener('resize', () => { cancelAnimationFrame(raf); resize(); raf = requestAnimationFrame(draw); }, { passive: true });
       raf = requestAnimationFrame(draw);
