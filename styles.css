@@ -533,3 +533,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero__visual.is-cursor .monogram { opacity: .12; transform: scale(.86); }
 .hero__visual.is-cursor .orbit { opacity: .3; }
 .hero__visual.is-cursor .monogram { opacity: 0; }
+
+/* bottom backoffice link: thin line arrow, no emoji */
+.backoffice-strip__arrow {
+  width: 18px; height: 18px; display: inline-block; margin-left: 7px;
+  vertical-align: -2px; color: var(--accent-dark);
+  transition: color .2s, transform .2s;
+}
+.backoffice-strip:hover .backoffice-strip__arrow { color: var(--accent); transform: translate(3px, 0); }
+.backoffice-strip__title span { display: none; }
