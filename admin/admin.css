@@ -31,3 +31,5 @@
 .backoffice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .backoffice-card__glyph svg { display:block; width:32px; height:32px; }
+
+.backoffice-card--wide { grid-column: 1 / -1; }
