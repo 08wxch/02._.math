@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://02math.com/sitemap.xml
