@@ -33,3 +33,23 @@
 .backoffice-card__glyph svg { display:block; width:32px; height:32px; }
 
 .backoffice-card--wide { grid-column: 1 / -1; }
+
+/* Adjacent rectangular workspace frames — same rhythm as the public system grid */
+.backoffice-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(10,10,10,.2);
+  border-left: 1px solid rgba(10,10,10,.2);
+}
+.backoffice-card {
+  border: 0;
+  border-right: 1px solid rgba(10,10,10,.2);
+  border-bottom: 1px solid rgba(10,10,10,.2);
+  border-radius: 0;
+  background: rgba(255,253,248,.42);
+}
+.backoffice-card:hover { transform: none; }
+.backoffice-card--wide { grid-column: auto; }
+@media (max-width: 820px) {
+  .backoffice-grid { grid-template-columns: 1fr; }
+}
